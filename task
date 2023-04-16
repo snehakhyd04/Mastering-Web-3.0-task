@@ -1,0 +1,82 @@
+#include<iostream>
+using namespace std;
+class car
+{
+    public:
+
+    string make,model;
+    int year, speed ,x,y;
+
+    void accelerate(int speed_increment,int& speed)
+    {
+        speed=speed+speed_increment;
+
+    }
+     void brake(int speed_decrement,int& speed)
+    {
+        speed=speed+speed_decrement;
+
+    }
+    bool detect(int&x1,int&y1,int&x,int&y)
+    {
+        if(x==x1&&y==y1)
+        return true;
+
+        else false;
+
+    }
+    int time_to_collision( car &c2,car &c1)
+    {
+        if(car1.x==car2.x)
+        return 0;
+        if(c1.speed*c2.speed>0)
+        {
+            if((car1.x<car2.x)&&(car1.speed>car2.speed)&&(c1.speed>0))
+            {
+                return((car2.x-car1.x)/(car1.speed-car2.speed));
+                
+            }
+            if((car1.x<car2.x)&&(car1.speed<car2.speed)&&(c2.speed<0))
+            {
+                return((car2.x-car1.x)/(car2.speed-car1.speed));
+                
+            }
+        }
+        else
+        {
+            
+            if(car1.x<car2.x)
+            {
+                if((car1.speed>0)&&(car2.speed<0))
+                return(car2.x-car1.x)/(car1.speed-car2.speed);
+            }
+            else
+            {
+                if((car1.speed<0)&&(car2.speed>0))
+                return(car1.x-car2.x)/(car2.speed-car1.speed);
+            }
+            
+
+        }
+    }
+
+
+};
+int main()
+{
+    car ob1,ob2;
+    ob1.make="hyundai";
+    ob1.model="alto";
+    ob1.speed=10;
+    ob1.x=10;
+    ob1.y=20;
+
+    
+    ob2.make="bmw";
+    ob2.model="creta";
+    ob2.speed=-20;
+    ob2.x=100;
+    ob2.y=20;
+
+    accelerate(20,ob1.speed);
+}
